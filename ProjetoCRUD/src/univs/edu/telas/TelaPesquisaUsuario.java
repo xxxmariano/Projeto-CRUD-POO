@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package univs.edu.telas;
 
+import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 import univs.edu.usuario.UsuarioTableModel;
 
-/**
- *
- * @author LABORATORIO 01
- */
+
 public class TelaPesquisaUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
+    
+
             
     public TelaPesquisaUsuario() {
         initComponents();
@@ -41,9 +37,10 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
         tfLogin = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        Excluir = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        Editar = new javax.swing.JButton();
+        voltar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -80,10 +77,10 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tabela);
 
-        jButton7.setText("Excluir");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        Excluir.setText("Excluir");
+        Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                ExcluirActionPerformed(evt);
             }
         });
 
@@ -94,39 +91,39 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setText("editar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        Editar.setText("editar");
+        Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                EditarActionPerformed(evt);
             }
         });
+
+        voltar.setText("Voltar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addGap(40, 40, 40))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(voltar)
+                        .addGap(77, 77, 77)
+                        .addComponent(Editar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton9)
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,13 +134,14 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8))
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton9))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(Excluir)
+                    .addComponent(Editar)
+                    .addComponent(voltar))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -153,17 +151,40 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfLoginActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
+         int linha = Tabela.getSelectedRow();
+         if(linha == -1){
+         JOptionPane.showMessageDialog(null, "Selecione uma Linha");}
+         else if(JOptionPane.showConfirmDialog(null, "Deseja Realmente" + "excluir este usuario","Excluir usúrio", 
+                 JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+         usuario = dao.pesquisar((int)Tabela.getValueAt(linha, 0));
+         dao.excluir(usuario);
+         atualizarTabela();
+         JOptionPane.showMessageDialog(null,"Usuario Excluido");
+         
+         }
+         
+         
+         
+    }//GEN-LAST:event_ExcluirActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+       int linha = Tabela.getSelectedRow();
+         if(linha == -1){
+         JOptionPane.showMessageDialog(null, "Selecione uma Linha");}else{
+         usuario = dao.pesquisar((int)Tabela.getValueAt(linha, 0));
+         TelaUsuario tela = new TelaUsuario();
+        tela.usuario = usuario;
+        tela.preencherUsuario();
+        tela.setVisible(true);
+        dispose();
+        
+         }
+    }//GEN-LAST:event_EditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,17 +222,18 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Editar;
+    private javax.swing.JButton Excluir;
     private javax.swing.JTable Tabela;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField tfLogin;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }
