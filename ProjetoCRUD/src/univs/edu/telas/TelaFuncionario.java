@@ -102,6 +102,11 @@ tfUsuario.setText(usuario.getLogin());
         jLabel8.setText("Usuario");
 
         jButton1.setText("Selecionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
 
@@ -113,6 +118,11 @@ tfUsuario.setText(usuario.getLogin());
         });
 
         jButton4.setText("Salvar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Pesquisar");
 
@@ -226,6 +236,18 @@ tfUsuario.setText(usuario.getLogin());
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       limparCampos();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       TelaVincularUsuario tela = new  TelaVincularUsuario(this);
+       tela.setVisible(true);
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (!tfNome.getText().isEmpty() && !tfCPF.getText().isEmpty() && !tfUsuario.getText().isEmpty() && !jcCargo.getText().isEmpty() &&   ){
+            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
