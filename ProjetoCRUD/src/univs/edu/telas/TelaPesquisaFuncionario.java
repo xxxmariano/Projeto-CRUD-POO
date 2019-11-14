@@ -1,24 +1,23 @@
 package univs.edu.telas;
 
 import javax.swing.JOptionPane;
-import univs.edu.usuario.Usuario;
-import univs.edu.usuario.UsuarioDAO;
-import univs.edu.usuario.UsuarioTableModel;
+import univs.edu.funcionario.Funcionario;
+import univs.edu.funcionario.FuncionarioDAO;
+import univs.edu.funcionario.FuncionarioTableModel;
 
-public class TelaPesquisaUsuario extends javax.swing.JFrame {
+public class TelaPesquisaFuncionario extends javax.swing.JFrame {
 
-    Usuario usuario = new Usuario();
-    UsuarioDAO dao = new UsuarioDAO();
+    Funcionario funcionario = new Funcionario();
+    FuncionarioDAO dao = new FuncionarioDAO();
     
     
-    public TelaPesquisaUsuario() {
+    public TelaPesquisaFuncionario() {
         initComponents();
         atualizarTabela();
     }
     
     public void atualizarTabela(){
-        UsuarioTableModel tm = 
-                new UsuarioTableModel(dao.listarUsuarios());
+        FuncionarioTableModel tm =  new FuncionarioTableModel(dao.listarFuncionarios());
         tabelaUsuario.setModel(tm);
     }
 
@@ -149,8 +148,8 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
         }else if(JOptionPane.showConfirmDialog(null, "Deseja realmente"
                 + " excluir este usuário?", "Excluir usuário", 
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            usuario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
-            dao.excluir(usuario);
+            funcionario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
+            dao.excluir(funcionario);
             atualizarTabela();
             JOptionPane.showMessageDialog(null, "Usuário excluído!");
         }
@@ -162,10 +161,10 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
         if(linha == -1){
             JOptionPane.showMessageDialog(null, "Selecione uma linha!");
         }else{
-            usuario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
-            TelaUsuario tela = new TelaUsuario();
-            tela.usuario = usuario;
-            tela.preencherUsuario();
+            funcionario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
+            TelaFuncionario tela = new TelaFuncionario();
+            tela.funcionario = funcionario;
+            tela.preencherFuncionario();
             tela.setVisible(true);
             dispose();
         }
@@ -174,8 +173,8 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        TelaUsuario telaUsuario = new TelaUsuario();
-        telaUsuario.setVisible(true);
+        TelaFuncionario telaFuncionario = new TelaFuncionario();
+        telaFuncionario.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -193,21 +192,22 @@ public class TelaPesquisaUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPesquisaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TelaPesquisaUsuario().setVisible(true);
+                new TelaPesquisaFuncionario().setVisible(true);
             }
         });
     }

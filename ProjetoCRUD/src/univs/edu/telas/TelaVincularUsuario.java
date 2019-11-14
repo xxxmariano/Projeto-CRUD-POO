@@ -1,67 +1,50 @@
-
 package univs.edu.telas;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
 import univs.edu.usuario.UsuarioTableModel;
-
 
 public class TelaVincularUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     UsuarioDAO dao = new UsuarioDAO();
     TelaFuncionario tela;
-
-            
+    
+    
     public TelaVincularUsuario(TelaFuncionario tela) {
         initComponents();
-        this.tela= tela;
+        this.tela = tela;
         tela.setVisible(false);
         atualizarTabela();
     }
+    
     public void atualizarTabela(){
         UsuarioTableModel tm = new UsuarioTableModel(dao.listarUsuarios());
-      Tabela.setModel(tm);
-    }
-    public void veicularUsuario( Usuario usuario){
-        tela.carregarUsuario(usuario);
-        
-    
-    
-    
+        tabelaUsuario.setModel(tm);
     }
 
+    public void vincularUsuario(Usuario usuario){
+        tela.carregarUsuario(usuario);
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
-        btSelecionar = new javax.swing.JButton();
-        voltar = new javax.swing.JButton();
-
-        jButton1.setText("jButton1");
-
-        jTextField1.setText("jTextField1");
-
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
+        tabelaUsuario = new javax.swing.JTable();
+        btnSelecionar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Vincular Usuario");
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Vincular Usuário");
 
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,24 +55,24 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelaUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TabelaMouseClicked(evt);
+                tabelaUsuarioMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(Tabela);
+        jScrollPane1.setViewportView(tabelaUsuario);
 
-        btSelecionar.setText("Selecionar");
-        btSelecionar.addActionListener(new java.awt.event.ActionListener() {
+        btnSelecionar.setText("Selecionar");
+        btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSelecionarActionPerformed(evt);
+                btnSelecionarActionPerformed(evt);
             }
         });
 
-        voltar.setText("Voltar");
-        voltar.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("Voltar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -97,62 +80,66 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(voltar)
-                        .addGap(77, 77, 77)
-                        .addComponent(btSelecionar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 3, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(btnSelecionar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton4)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSelecionar)
-                    .addComponent(voltar))
-                .addGap(30, 30, 30))
+                    .addComponent(btnSelecionar)
+                    .addComponent(jButton4))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSelecionarActionPerformed
-       int linha = Tabela.getSelectedRow();
-         if(linha == -1){
-         JOptionPane.showMessageDialog(null, "Selecione uma Linha");}else{
-        usuario = dao.pesquisar((int) Tabela.getValueAt(linha,0));
-        tela.carregarUsuario(usuario);
+    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
+        int linha = tabelaUsuario.getSelectedRow();
+        if(linha == -1){
+            JOptionPane.showMessageDialog(null, "Selecione uma linha!");
+        }else{
+            usuario = dao.pesquisar((int)tabelaUsuario.getValueAt(linha, 0));
+            tela.carregarUsuario(usuario);
+            tela.setVisible(true);
+            dispose();
+        }
+        
+    }//GEN-LAST:event_btnSelecionarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         tela.setVisible(true);
         dispose();
-        
-         }
-    }//GEN-LAST:event_btSelecionarActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-    tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_voltarActionPerformed
+    private void tabelaUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuarioMouseClicked
+        if(evt.getClickCount() == 2){
+            btnSelecionarActionPerformed(null);
+        }
+    }//GEN-LAST:event_tabelaUsuarioMouseClicked
 
-    private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaMouseClicked
-      if(evt.getClickCount()== 2){
-          btSelecionarActionPerformed(null);
-      
-      }
-    }//GEN-LAST:event_TabelaMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -180,6 +167,7 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaVincularUsuario(null).setVisible(true);
             }
@@ -187,14 +175,10 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabela;
-    private javax.swing.JButton btSelecionar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnSelecionar;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton voltar;
+    private javax.swing.JTable tabelaUsuario;
     // End of variables declaration//GEN-END:variables
 }
