@@ -121,6 +121,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         });
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,7 +230,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -244,6 +249,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
         }else{
         JOptionPane.showMessageDialog(null,"Preenchar todos od campos!");}
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+       TelaPesquisaFuncionario tela = new TelaPesquisaFuncionario();
+       tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
