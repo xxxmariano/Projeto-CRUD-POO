@@ -126,7 +126,7 @@ public class TelaAutenticacao extends javax.swing.JFrame {
             funcionario = autenticarFunc(tfLogin.getText(), 
                     tfSenha.getText());
             if(funcionario != null){
-                MenuPrincipal menu = new MenuPrincipal();
+                MenuPrincipal menu = new MenuPrincipal(funcionario);
                 menu.setVisible(true);
                 dispose();
             }else{
